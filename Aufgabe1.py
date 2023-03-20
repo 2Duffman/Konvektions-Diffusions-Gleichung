@@ -41,6 +41,3 @@ def secondEquation(N:int,eps:float):
 
 def given_solution(x:float, eps:float):
     return x - 1 + (np.exp((x-1)/eps) - 1 ) / ((np.exp((-1)/eps )) - 1)
-
-
-print(given_solution(0.5, 1))
