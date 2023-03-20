@@ -52,4 +52,4 @@ def calcError(N:int, eps:float, calculatedPoints):
         res += dx* (uHat[i]-calculatedPoints2[i])**2
     return np.sqrt(res)
 
-print(calcError(10,0.5,secondEquation(10,0.5)))
+print(calcError(10000,0.5,secondEquation(10000,0.5)))
