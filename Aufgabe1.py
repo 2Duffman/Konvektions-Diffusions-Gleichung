@@ -1,7 +1,5 @@
 import numpy as np
 from scipy import sparse
-import matplotlib as plt
-import math
 
 def buildMatrixA(N:int):
     A=sparse.lil_matrix((N-1,N-1))
@@ -43,15 +41,15 @@ def secondEquation(N:int,eps:float):
 def given_solution(x:float, eps:float):
     return x - 1 + (np.exp((x-1)/eps) - 1 ) / ((np.exp((-1)/eps )) - 1)
 
-
-def calcError (N:int, eps:float, calculatedPoints):
+def calcError(N:int, eps:float, calculatedPoints):
+    calculatedPoints2 = [0] + list(calculatedPoints) + [0]
     dx=1/N
     uHat=[]
     for i in (range(N+1)):
-        uHat.append(given_solution(i*dx,eps))
-    sum=0
+        uHat.append(given_solution(i*dx , eps))
+    res = 0
     for i in (range(N+1)):
-        sum+=dx*(uHat[i]-calculatedPoints[i])**2
-    return math.sqrt(sum)
+        res += dx* (uHat[i]-calculatedPoints2[i])**2
+    return np.sqrt(res)
 
-print(calcError(1000,0.5,secondEquation(1000,0.5)))
+print(calcError(10,0.5,secondEquation(10,0.5)))
