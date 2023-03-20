@@ -1,5 +1,6 @@
 import numpy as np
 from scipy import sparse
+import matplotlib as plt
 
 def buildMatrixA(N:int):
     A=sparse.lil_matrix((N-1,N-1))
@@ -38,4 +39,8 @@ def secondEquation(N:int,eps:float):
     sumMatrix=((eps/dx**2)*buildMatrixA(N))+(1/abs(dx)*buildMatrixC(N))
     return sparse.linalg.spsolve(sumMatrix,buildVectorF(N))
 
-print (secondEquation(10,0.5))  
+def given_solution(x:float, eps:float):
+    return x - 1 + (np.exp((x-1)/eps) - 1 ) / ((np.exp((-1)/eps )) - 1)
+
+
+print(given_solution(0.5, 1))
