@@ -40,16 +40,3 @@ def secondEquation(N:int,eps:float):
 
 def given_solution(x:float, eps:float):
     return x - 1 + (np.exp((x-1)/eps) - 1 ) / ((np.exp((-1)/eps )) - 1)
-
-def calcError(N:int, eps:float, calculatedPoints):
-    calculatedPoints2 = [0] + list(calculatedPoints) + [0]
-    dx=1/N
-    uHat=[]
-    for i in (range(N+1)):
-        uHat.append(given_solution(i*dx , eps))
-    res = 0
-    for i in (range(N+1)):
-        res += dx* (uHat[i]-calculatedPoints2[i])**2
-    return np.sqrt(res)
-
-print(calcError(10,0.5,secondEquation(10,0.5)))

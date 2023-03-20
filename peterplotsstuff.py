@@ -3,8 +3,8 @@ from scipy import sparse
 import matplotlib.pyplot as plt
 import Aufgabe1
 
-N = 100
-eps = 0.05
+N = 1000
+eps = 0.0005
 
 approx_first = [0] + list(Aufgabe1.firstEquation(N, eps)) + [0]
 approx_second = [0] + list(Aufgabe1.secondEquation(N, eps)) + [0]
