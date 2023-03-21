@@ -16,15 +16,22 @@ def calcError(N:int, eps:float, calculatedPoints):
     return np.sqrt(res)
 
 def plotError(eps:float, equation:int):
-    plt.scatter([1,10,100,1000,10000], calcErrors(eps, equation))
-    plt.show()
+    fig = plt.figure()
+    ax = fig.add_subplot(2, 1, 1)
+    plt.scatter([10,100,1000,10000], calcErrors(eps, equation))
+    plt.title("Fehler für \u03B5=%.4f"%eps+", Verfahren %d" %equation)
+    ax.set_xscale('log')
+    plt.savefig(f"./Images/Fehler eps = {eps} Verfahren {equation}.png" )
 
 def calcErrors(eps:float, equation:int):
     errors = []
-    for i in (1,10,100,1000,10000):
+    for i in (10,100,1000,10000):
         if (equation==1):
             errors.append(calcError(i, eps,Aufgabe1.firstEquation(i, eps)))
         if (equation==2):
             errors.append(calcError(i, eps,Aufgabe1.secondEquation(i, eps)))
     return errors
-plotError(0.5,1)
+
+for i in (1,2):
+    for eps in (0.5,0.05,0.005,0.0005):
+        plotError(eps,i)
