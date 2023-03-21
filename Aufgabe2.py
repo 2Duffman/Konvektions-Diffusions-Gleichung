@@ -14,8 +14,8 @@ def plot_curves(N, eps):
     l1, = ax.plot(xs2, exact_solution)
     l2, = ax.plot(xs, approx_first)
     l3, = ax.plot(xs, approx_second)
-    ax.set_title(f"N = {N}, eps = {eps}")
+    ax.set_title(f"Lösungen N = {N}, eps = {eps}")
     fig.legend((l1, l2, l3), ('Exakte Lösung', 'Verfahren 1', 'Verfahren 2'), loc='upper left')
     #speichert den Plot als Bild ab
-    plt.savefig(f"./Images/Lösungen N = {N}, eps = {eps}.png" )
+    plt.savefig(f"./Images/{N}_{eps}.png" )
     plt.close()

@@ -34,6 +34,7 @@ def plotError(eps:float):
     ax.set_yscale('log')
     ax.set_xlabel('N')
     ax.set_ylabel('Fehler')
+    ax.set_title(f"Fehlerplot für eps = {eps}")
     fig.legend((e1,e2), ('Verfahren 1', 'Verfahren 2'), loc='upper left')
-    plt.savefig(f"./Images/Fehler eps = {eps}.png" )
+    plt.savefig(f"./Images/{eps}.png" )
     plt.close()
