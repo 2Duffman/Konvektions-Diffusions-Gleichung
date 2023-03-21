@@ -15,13 +15,16 @@ def calcError(N:int, eps:float, calculatedPoints):
         res += dx* (uHat[i]-calculatedPoints2[i])**2
     return np.sqrt(res)
 
-def plotError(eps:float, equation:int):
-    fig = plt.figure()
-    ax = fig.add_subplot(2, 1, 1)
-    plt.scatter([10,100,1000,10000], calcErrors(eps, equation))
-    plt.title("Fehler für \u03B5=%.4f"%eps+", Verfahren %d" %equation)
+def plotError(eps:float):
+    fig, ax = plt.subplots()
+    e1 = ax.scatter([10,100,1000,10000], calcErrors(eps,1))
+    e2 = ax.scatter([10,100,1000,10000], calcErrors(eps,2))
     ax.set_xscale('log')
-    plt.savefig(f"./Images/Fehler eps = {eps} Verfahren {equation}.png" )
+    ax.set_yscale('log')
+    ax.set_xlabel('N')
+    ax.set_ylabel('Fehler')
+    fig.legend((e1,e2), ('Verfahren 1', 'Verfahren 2'), loc='upper left')
+    plt.savefig(f"./Images/Fehler eps = {eps}.png" )
 
 def calcErrors(eps:float, equation:int):
     errors = []
@@ -31,7 +34,3 @@ def calcErrors(eps:float, equation:int):
         if (equation==2):
             errors.append(calcError(i, eps,Aufgabe1.secondEquation(i, eps)))
     return errors
-
-for i in (1,2):
-    for eps in (0.5,0.05,0.005,0.0005):
-        plotError(eps,i)
