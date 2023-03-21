@@ -13,4 +13,4 @@ for eps in epss:
         Aufgabe2.plot_curves(N,eps)
 
 for eps in epss:
-    Aufgabe3.plotError(eps)
+    Aufgabe3.plotError(eps, Ns)

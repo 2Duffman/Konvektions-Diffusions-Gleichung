@@ -15,10 +15,10 @@ def calcError(N:int, eps:float, calculatedPoints):
         res += dx* (uHat[i]-calculatedPoints2[i])**2
     return np.sqrt(res)
 
-#calls calcError for Aufgabe1 and Aufgabe2 for all given values of eps
-def calcErrors(eps:float, equation:int):
+#calls calcError for Verfahren 1 and Verfahren 2 for all given values of eps
+def calcErrors(eps:float,Ns, equation:int):
     errors = []
-    for i in (10,100,1000,10000):
+    for i in Ns:
         if (equation==1):
             errors.append(calcError(i, eps,Aufgabe1.firstEquation(i, eps)))
         if (equation==2):
@@ -26,10 +26,10 @@ def calcErrors(eps:float, equation:int):
     return errors
 
 #plots Errors calculated by calcError function into a scatter plot
-def plotError(eps:float):
+def plotError(eps:float, Ns):
     fig, ax = plt.subplots()
-    e1 = ax.scatter([10,100,1000,10000], calcErrors(eps,1))
-    e2 = ax.scatter([10,100,1000,10000], calcErrors(eps,2))
+    e1 = ax.scatter(Ns, calcErrors(eps,Ns, 1))
+    e2 = ax.scatter(Ns, calcErrors(eps,Ns, 2))
     ax.set_xscale('log')
     ax.set_yscale('log')
     ax.set_xlabel('N')
