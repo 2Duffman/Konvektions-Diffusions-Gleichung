@@ -3,8 +3,8 @@ from scipy import sparse
 import matplotlib.pyplot as plt
 import Aufgabe1
 
-#plots beide Verfahren und die exakte Lösung in ein Diagramm für gegebenes N und eps
-def plot_stuff(N, eps):
+#plottet beide Verfahren und die exakte Lösung in ein Diagramm für gegebenes N und eps
+def plot_curves(N, eps):
     approx_first = [0] + list(Aufgabe1.firstEquation(N, eps)) + [0]
     approx_second = [0] + list(Aufgabe1.secondEquation(N, eps)) + [0]
     exact_solution =  [Aufgabe1.given_solution(i * (1/10000), eps) for i in range(10000)] + [0]
