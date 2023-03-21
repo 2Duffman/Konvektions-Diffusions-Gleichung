@@ -25,6 +25,7 @@ def plotError(eps:float):
     ax.set_ylabel('Fehler')
     fig.legend((e1,e2), ('Verfahren 1', 'Verfahren 2'), loc='upper left')
     plt.savefig(f"./Images/Fehler eps = {eps}.png" )
+    plt.close()
 
 def calcErrors(eps:float, equation:int):
     errors = []
