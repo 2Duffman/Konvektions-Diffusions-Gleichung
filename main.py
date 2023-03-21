@@ -5,7 +5,7 @@ import Aufgabe1
 import Aufgabe3
 import Aufgabe2
 
-Ns = [10, 100, 1000, 10000]
+Ns = [9, 99, 999, 9999]
 epss = [0.5, 0.05, 0.005, 0.0005]
 
 for eps in epss:
