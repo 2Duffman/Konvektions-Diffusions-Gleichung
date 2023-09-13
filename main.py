@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import Aufgabe1
 import Aufgabe3
 import Aufgabe2
-
-Ns = [9, 99, 999, 9999]
+"""
+Ns = [10, 100, 1000, 10000]
 epss = [0.5, 0.05, 0.005, 0.0005]
 
 for eps in epss:
@@ -14,3 +14,6 @@ for eps in epss:
 
 for eps in epss:
     Aufgabe3.plotError(eps, Ns)
+"""
+
+Aufgabe3.plotError(0.0005,[10,100,999,10000])
